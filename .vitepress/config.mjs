@@ -1,38 +1,32 @@
 import { defineConfig } from 'vitepress'
+import { set_sidebar } from "../utils/auto-gen-sidebar.mjs";	// 改成自己的路径
+
+const base = '/doc/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: 'aidpoint-doc',
+  base,
+  srcDir: 'doc',
   title: "支点软件",
   description: "描述",
-  head: [["link", { rel: "icon", href: "/public/logo.png" }]],
+  assetsDir: 'public',
+  head: [["link", { rel: "icon", href: `logo.png` }]],
   themeConfig: {
-    logo: '/public/logo.png',
+    logo: `logo.png`,
     outline: 'deep',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '案列', link: '/markdown-examples' }
+      {
+        text: '案列', link: `markdown-examples`
+      }
     ],
     footer: {
       copyright: 'Zhang copyright@ 2023 Albert '
     },
-    sidebar: [
-      {
-        text: 'Examples1',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      },
-      {
-        text: 'Examples2',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      [`${base}api`]: set_sidebar(`${base}api`),
+    },
     search: {
       provider: 'local',
       options: {

@@ -7,7 +7,7 @@ hero:
   text: "20年的洗浴足浴收银软件"
   tagline: 老品牌 只得信赖
   image: 
-    src: /public/background.png
+    src: /background.png
     alt: 背景图
   actions:
     - theme: brand
