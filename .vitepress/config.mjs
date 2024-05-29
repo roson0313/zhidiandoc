@@ -14,8 +14,8 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: `/logo.png` }]],
   themeConfig: {
     logo: `logo.png`,
-    outline: 'deep',
-    outlineTitle: '目录',
+    outline: 'deep', //'deep'` 与 `[2, 6]` 相同，将显示从 `<h2>` 到 `<h6>` 的所有标题。
+    outlineTitle: '导航',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'API', link: '/api' },
