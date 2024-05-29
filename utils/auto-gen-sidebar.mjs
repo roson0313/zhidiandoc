@@ -1,6 +1,8 @@
 import path from "node:path";
 import fs from "node:fs";
 
+// 项目目录
+const srcDir = '/doc/';
 // 文件根目录
 const DIR_PATH = path.resolve();
 // 白名单,过滤不是文章的文件和文件夹
@@ -47,7 +49,7 @@ function getList(params, path1, pathname) {
       }
       res.push({
         text: name,
-        link: `${pathname}/${name}`,
+        link: `${pathname}/${name}`.replace(srcDir, '')
       });
     }
   }
@@ -59,6 +61,8 @@ function getList(params, path1, pathname) {
 }
 
 export const set_sidebar = (pathname) => {
+  // 完整路径
+  pathname = `${srcDir}${pathname}`
   // 获取pathname的路径
   const dirPath = path.join(DIR_PATH, pathname);
   // 读取pathname下的所有文件或者文件夹

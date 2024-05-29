@@ -1,31 +1,34 @@
 import { defineConfig } from 'vitepress'
 import { set_sidebar } from "../utils/auto-gen-sidebar.mjs";	// 改成自己的路径
 
-const base = '/doc/';
+// const base = '/doc/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base,
+  // base,
   srcDir: 'doc',
   title: "支点软件",
+  // titleTemplate: ':title - 支点软件',
   description: "描述",
   assetsDir: 'public',
-  head: [["link", { rel: "icon", href: `logo.png` }]],
+  head: [["link", { rel: "icon", href: `/logo.png` }]],
   themeConfig: {
     logo: `logo.png`,
     outline: 'deep',
+    outlineTitle: '目录',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'API', link: '/api' },
       {
-        text: '案列', link: `markdown-examples`
+        text: '问答', link: '/qa'
       }
     ],
     footer: {
       copyright: 'Zhang copyright@ 2023 Albert '
     },
     sidebar: {
-      [`${base}api`]: set_sidebar(`${base}api`),
+      "/api": set_sidebar(`api`),
+      "/qa": set_sidebar(`qa`),
     },
     search: {
       provider: 'local',
